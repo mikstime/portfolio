@@ -3,6 +3,7 @@ import './style.sass'
 import gitLogo from './imgs/GitHub-Mark-Light-120px-plus.png'
 import twitterLogo from './imgs/twitter-128.png'
 import uuid from 'uuid/v4'
+import PropTypes from 'prop-types'
 const Link = (props) => (
     <li key={uuid()} className='link'>
         <a href={props.href}>
@@ -18,6 +19,11 @@ const Link = (props) => (
         </a>
     </li>
 )
+Link.propTypes = {
+    href : PropTypes.string.isRequired,
+    image : PropTypes.string,
+    text : PropTypes.string
+}
 
 class LinkHolder extends Component {
 
@@ -33,3 +39,4 @@ class LinkHolder extends Component {
 }
 
 export default LinkHolder
+export {Link}
