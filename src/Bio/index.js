@@ -101,7 +101,7 @@ class Bio extends Component {
             <div ref={ref => this._ref = ref} className={'bio-holder'}>
                 { mounted &&
                 <View width={ ref.width } height={ ref.height } ref={ref => this._view = ref}>
-                    <Chain  onDrag={this.onDrag}  onUp={this.mouseUp}/>
+                    <Chain width={ ref.width } height={ ref.height } onDrag={this.onDrag}  onUp={this.mouseUp}/>
                 </View>
                 }
             </div>
