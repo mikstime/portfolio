@@ -48,7 +48,7 @@ class Bio extends Component {
             <div ref={ref => this._ref = ref} className={'bio-holder'}>
                 { mounted &&
                 <View width={ ref.width } height={ ref.height }>
-
+                    <Chain/>
                 </View>
                 }
             </div>
