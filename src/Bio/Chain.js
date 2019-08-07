@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component, Fragment } from 'react'
 import { Layer, Tool } from 'react-paper-bindings'
 import uuid from 'uuid/v4'
 import Fact from './Fact'
@@ -6,7 +6,8 @@ import Fact from './Fact'
 import testData from './BioTemplate.json'
 import { View } from 'react-paper-bindings'
 
-//@TODO improve animation on return
+//@TODO Fix animations
+//@TODO Fix letters om low res screens
 class Chain extends Component {
 
     state = {
@@ -136,55 +137,21 @@ class Chain extends Component {
     render() {
         const { x, y, radius, deltaRadius, pulsarRadius, isPulsing } = this.state
         return(
+            <Fragment>
             <Layer>
                 <Tool
                     onMouseDrag = {this.props.onDrag}
                     onMouseUp={this.props.onUp}
                 />
-                {
-                    <Fact
-                        zIndex={2}
-                        onClick ={() => {
-                            this.togglePulse()
-                            this.setState(
-                                (old) => ({
-                                    animStart : {
-                                        x : old.x,
-                                        y : old.y,
-                                        pulsarRadius : this.props.width / 3,
-                                        deltaRadius : old.deltaRadius,
-                                        radius : old.radius,
-                                    }
-                                })
-                            )
-                            requestAnimationFrame(this.toggleAbout)
-                        }}
-                        color='#DE59FF'
-                        title={'About Me'}
-                        radius={pulsarRadius}
-                        center={[x, y]}
-                    />
-                }
-                {
-                    !isPulsing && testData
+                {!isPulsing &&
+                    testData
                         .map((descr, id) =>(
                             <Fact key={uuid()}
                                   center={[x, y]}
                                   showText={!this.state.isToggling}
-                                  onClick ={() => {
+                                  onClick ={(e) => {
                                       this.togglePulse()
-                                      this.setState(
-                                          (old) => ({
-                                              animStart : {
-                                                  x : old.x,
-                                                  y : old.y,
-                                                  pulsarRadius : this.props.width / 3,
-                                                  deltaRadius : old.deltaRadius,
-                                                  radius : old.radius,
-                                              }
-                                          })
-                                      )
-                                      requestAnimationFrame(this.toggleAbout)
+                                      this.toggleAbout()
                                   }}
                                   radius={radius + deltaRadius *
                                     (testData.length - 1) - (id) *
@@ -195,6 +162,21 @@ class Chain extends Component {
                     )
                 }
             </Layer>
+            <Layer>
+                {
+                    <Fact
+                        onClick ={(e) => {
+                            this.togglePulse()
+                            this.toggleAbout()
+                        }}
+                        color='#DE59FF'
+                        title={'About Me'}
+                        radius={pulsarRadius}
+                        center={[x, y]}
+                    />
+                }
+            </Layer>
+            </Fragment>
         )
     }
 }
