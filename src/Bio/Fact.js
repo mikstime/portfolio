@@ -4,26 +4,48 @@ import { Layer, Group, Line, Circle, Rectangle, PointText } from 'react-paper-bi
 import {RED, BLACK, WHITE} from '../CONSTANTS'
 
 
-const TextBlock = (props) => {
+class TextBlock extends Component {
 
-    const {radius, message, style} = props
+    componentDidMount() {
+        const { radius, message, style } = this.props
+        let angle = -Math.acos(1 - 1 / 2 * (200 / radius) ** 2) * 180 / Math.PI
 
-    let angle = -Math.acos(1 - 1 / 2 * (200 / radius) ** 2) * 180 / Math.PI
-    return message.split('').map(
-        (letter) => {
+        this.letterRefs.forEach(
+            (ref) => {
 
-            const radAngle = angle / 180 * Math.PI
-            const delta = Math.acos( 1 - 1 / 2 * (style.fontSize / 1.3 / radius) ** 2)
+                let  fontSize =  ref.internalBounds.width + 1
 
-            const posX = -200 +radius * Math.cos(radAngle)
-            const posY =  250 + radius * Math.sin(radAngle)
-            const prevAngle = angle
-            angle += delta * 180 / Math.PI
-            return(
-                <PointText key={uuid()} {...style} justification='center' point={[posX, posY]} content={letter} rotation={90 + angle}/>
-            )
-        }
-    )
+                const radAngle = angle / 180 * Math.PI
+                const delta = Math.acos(1 - 1 / 2 * (fontSize / radius) ** 2)
+
+                const posX = -200 + radius * Math.cos(radAngle)
+                const posY = 250 + radius * Math.sin(radAngle)
+
+                angle += delta * 180 / Math.PI
+                ref.rotation = 90 + angle
+                ref.bounds.topRight.set(posX, posY)
+            }
+        )
+    }
+
+    letterRefs = []
+    render() {
+        // generate text.
+        // @IMPORTANT SET POSITION USING REFS onComponentDidMount
+        const { message, style } = this.props
+
+        return  message.split('').map(
+            (letter) => {
+                return (
+                    <PointText ref={ (r) => (this.letterRefs.push(r)) }
+                               key={ uuid() }
+                               { ...style }
+                               justification='center'
+                               content={ letter }
+                    />
+                )
+            })
+    }
 }
 class Fact extends Component {
 
@@ -60,19 +82,27 @@ class Fact extends Component {
             fontFamily : 'Blinker',
             fontWeight : 'normal',
         }
-        bodyStyle.point = [radius - 50, 100 + headerStyle.fontSize / 2]
-        headerStyle.point = [radius - 50, 100 - bodyStyle.fontSize / 2]
         return(
             <Fragment>
                 <Circle {...circleStyle}/>
                 <Group>
-                    {body && <TextBlock radius={radius - 100} message={body} style={bodyStyle}/>}
+                    {body && <TextBlock
+                        radius={radius - 100}
+                        message={body}
+                        style={bodyStyle}/>}
                 </Group>
                 <Group>
-                    {header && <TextBlock align={'top'} radius={radius - 80} message={header} style={headerStyle}/>}
+                    {header && <TextBlock
+                        radius={radius - 80}
+                        message={header}
+                        style={headerStyle}/>}
                 </Group>
                 <Group>
-                    {title && <PointText justification='center'  style={titleStyle} point={[200, 350]}content={title}/>}
+                    {title && <PointText
+                        justification='center'
+                        style={titleStyle}
+                        point={[200, 350]}
+                        content={title}/>}
                 </Group>
 
             </Fragment>
