@@ -1,0 +1,60 @@
+[
+  {
+    "type" : "fact",
+    "content" : [
+      ["h3", "Birth"],
+      ["p", "04.05.2000"]
+    ]
+  },
+  {
+    "type" : "chain",
+    "props" : {
+      "stack" : 2
+    },
+    "content" : [
+      {
+        "type" : "fact",
+        "content" : [
+          ["h3", "Lucy 1580"],
+          ["p", "in 2018"]
+        ]
+      },
+      {
+        "type" : "fact",
+        "content" : [
+          ["h3", "School 2114"],
+          ["p", "2016-2017"]
+        ]
+      },
+      {
+        "type" : "fact",
+        "content" : [
+          ["h3", "School 1358"],
+          ["p", "2007-2016"]
+        ]
+      },
+      {
+        "type" : "fact",
+        "content" : [
+          ["h3", "School 1496"],
+          ["p", "2007-2007"]
+        ]
+      }
+    ]
+  },
+  {
+    "type" : "chain",
+    "props" : {
+      "stack" : 1
+    },
+    "content" : [
+      {
+        "type" : "fact",
+        "content" : [
+          ["h3", "BMSTU"],
+          ["p", "2018 - 2022"]
+        ]
+      }
+    ]
+  }
+]

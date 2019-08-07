@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import './style.sass'
 import gitLogo from './imgs/GitHub-Mark-Light-120px-plus.png'
-import twitterLogo from './imgs/Twitter_Logo_WhiteOnImage.png'
+import twitterLogo from './imgs/twitter-128.png'
 import uuid from 'uuid/v4'
 const Link = (props) => (
     <li key={uuid()} className='link'>
@@ -26,7 +26,7 @@ class LinkHolder extends Component {
             <ul className='links-holder'>
                 <Link scale={50} image={gitLogo} href='https://github.com/mikstime'/>
                 <Link text='Home Page' href='.'/>
-                <Link image={twitterLogo} href='https://twitter.com/BalitskyMichael'/>
+                <Link scale={50} image={twitterLogo} href='https://twitter.com/BalitskyMichael'/>
             </ul>
         )
     }
