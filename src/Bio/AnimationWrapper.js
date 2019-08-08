@@ -5,7 +5,6 @@ export default function AnimationWrapper(WrappedComponent) {
 
     return class extends Component {
 
-        timesCalled = 0
         onAnimationEnd = () => {} // callback can be set on setupAnimation
         state = {
             currentState : { },
