@@ -95,9 +95,9 @@ export default function AnimationWrapper(WrappedComponent) {
             requestAnimationFrame(this.animate)
         }
         linearBehavior = () => {
-            const { behavior : {_currentStep = 1},
+            const { behavior : {currentStep = 1},
                 numberOfSteps, computedSteps, currentState } = this.state
-            if (  _currentStep <= numberOfSteps ) {
+            if (  currentStep <= numberOfSteps ) {
                 const newState = {}
                 for ( let key of Object.keys(computedSteps) ) {
                     newState[ key ] = currentState[ key ] + computedSteps[ key ]
@@ -105,7 +105,7 @@ export default function AnimationWrapper(WrappedComponent) {
                 this.setState({
                     currentState : newState,
                     behavior : {
-                        _currentStep : _currentStep + 1,
+                        currentStep : currentStep + 1,
                     },
                 })
 
@@ -139,7 +139,7 @@ export default function AnimationWrapper(WrappedComponent) {
             this.setState({
                 currentState : newState,
                 behavior : {
-                    _direction : newDirection
+                    direction : newDirection
                 }
             })
         } else {
@@ -152,6 +152,8 @@ export default function AnimationWrapper(WrappedComponent) {
                 {
                     type : type || 'linear',
                     numberOfSteps, startState, endState,
+                    behavior : type !== 'linear' ? { direction : -1 } : 
+                        { currentStep : 1}
                 }
             )
         }
