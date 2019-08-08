@@ -1,14 +1,20 @@
 @import "../CONSTANTS"
+
+.links-holder-hidden
+  height: 0
+  font-size: 0
 .links-holder
+  height : 50px
+.links-holder, .links-holder-hidden
+  position: fixed
   list-style: none
   display: flex
-  height : 50px
   width: 100%
   background: black
   align-items : stretch
   align-content: stretch
   justify-content: space-evenly
-
+  transition: height .2s, font-size .2s
   & .link
     flex: 1
     background: $BLACK_BACKGROUND

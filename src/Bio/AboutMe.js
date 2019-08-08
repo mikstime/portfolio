@@ -19,48 +19,48 @@ class AboutMe extends Component {
 
     state = {
         pulsingAnimation : {
-            type :"linear-looped",
-            startState : {
+            type : "linear-looped",
+            startState : () => ({
                 x : this.props.width / 2,
                 y : this.props.height / 2,
                 radius : 200,
                 infoRadius : 0
-            },
-            endState : {
+            }),
+            endState : () => ({
                 x : this.props.width / 2,
                 y : this.props.height / 2,
                 radius : 215,
                 infoRadius : 0
-            },
+            }),
             numberOfSteps : 13
         },
         onClickAnimationReversed : {
             type : "linear",
             startState : {
                 x : 100,
-                y : 600,
+                y : 650,
                 radius : 300,
                 infoRadius : 100
             },
-            endState :  {
+            endState : () => ({
                 x : this.props.width / 2,
                 y : this.props.height / 2,
                 radius : 200,
                 infoRadius : 0
-            },
+            }),
             numberOfSteps : 30
         },
         onClickAnimation : {
             type : "linear",
-            startState : {
+            startState : () => ({
                 x : this.props.width / 2,
                 y : this.props.height / 2,
                 radius : 200,
                 infoRadius : 0
-            },
+            }),
             endState : {
                 x : 100,
-                y : 600,
+                y : 650,
                 radius : 300,
                 infoRadius : 100
             },
@@ -73,17 +73,14 @@ class AboutMe extends Component {
         ],
         currentAnimation : 0
     }
-    componentWillMount() {
-        this.startAnimation()
-    }
-    startAnimation() {
+    startAnimation = () => {
         const {animationList, currentAnimation} = this.state
         this.props.setupAnimation(
             {
                 ...this.state[ animationList[ currentAnimation ] ],
                 onAnimationEnd : this.onAnimationEnd
             }
-        )
+            )
         this.props.startAnimation()
     }
     onAnimationEnd = () => {
@@ -97,6 +94,10 @@ class AboutMe extends Component {
             currentAnimation : (state.currentAnimation + 1) % (state.animationList.length),
         }), this.startAnimation)
     }
+    componentDidMount() {
+        this.startAnimation()
+    }
+
     render() {
         const {x, y, radius, infoRadius} = this.props
         return(

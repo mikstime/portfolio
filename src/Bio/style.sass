@@ -1,5 +1,7 @@
 @import "../CONSTANTS"
 .bio-holder
   width: 100%
-  min-height: 700px
-  background-color: $BLACK_BACKGROUND
+  min-width: 850px
+  min-height: 2 * $BIO_HEIGHT //700 is min
+  height: calc(700px + 100vh)
+  background: linear-gradient(to bottom, $BLACK_BACKGROUND 0%, $BLACK_BACKGROUND $BIO_HEIGHT, $WHITE_BACKGROUND $BIO_HEIGHT, $WHITE_BACKGROUND 100%) //$BLACK_BACKGROUND

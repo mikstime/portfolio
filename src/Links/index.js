@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import uuid from 'uuid/v4'
 
@@ -24,13 +24,37 @@ Link.propTypes = {
     text : PropTypes.string
 }
 
-const LinkHolder = () => (
-    <ul className='links-holder'>
-        <Link scale={50} image={gitLogo} href='https://github.com/mikstime'/>
-        <Link text='Michael Balitsky' href='.'/>
-        <Link scale={50} image={twitterLogo} href='https://twitter.com/BalitskyMichael'/>
-    </ul>
-)
+class LinkHolder  extends Component {
+
+    state = {
+        needToShow : true
+    }
+    handleScroll = (e) => {
+        if(window.pageYOffset > 650 && this.state.needToShow === true) {
+            this.setState({needToShow : false})
+        }
+        if(window.pageYOffset <= 650 && this.state.needToShow === false) {
+            this.setState({needToShow : true})
+        }
+    }
+    componentDidMount = () => {
+        window.addEventListener('scroll', this.handleScroll)
+    }
+    componentWillUnmount = () => {
+        window.removeEventListener('scroll', this.handleScroll)
+    }
+    render() {
+        const { needToShow } = this.state
+        const className= 'links-holder' + (needToShow ? '' : '-hidden')
+        return(
+            <ul className={className}>
+                <Link scale={50} image={gitLogo} href='https://github.com/mikstime'/>
+                <Link text='Michael Balitsky' href='.'/>
+                <Link scale={50} image={twitterLogo} href='https://twitter.com/BalitskyMichael'/>
+            </ul>
+        )
+    }
+}
 
 export default LinkHolder
 export {Link}

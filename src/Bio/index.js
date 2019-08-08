@@ -3,7 +3,7 @@ import './style.sass'
 import {
     View
 } from 'react-paper-bindings'
-
+import {Point} from 'paper'
 import Rainbow from './BioRainbow'
 class Bio extends Component {
 
@@ -22,12 +22,17 @@ class Bio extends Component {
             this._request = requestAnimationFrame(this.resizeView)
     }
     resizeView = () => {
-        this.forceUpdate()
+        if(this._view && this._view.scope) {
+            const {width, height} = this._ref.getBoundingClientRect()
+            this._view.scope.view.center = new Point(width / 2, height / 2)
+            this.setState(this.state)
+        }
         this._request = null
     }
     componentDidMount() {
         this.setState({ mounted: true })
         window.addEventListener('resize', this.onWindowResize)
+        console.log(this._ref.getBoundingClientRect())
     }
     componentWillUnmount() {
         this.setState({ mounted: false })
@@ -73,25 +78,6 @@ class Bio extends Component {
         this._pan = null
         this._pinch = null
     }
-    getPanEventData(e) {
-        const { point, event: { touches, pageX, pageY }, tool: { view } } = e
-        return {
-            point: view.projectToView(point),
-            x: (touches) ? touches[0].pageX : pageX,
-            y: (touches) ? touches[0].pageY : pageY,
-        }
-    }
-    getPanEventState(e, prev, next) {
-        const { x, y } = this.state
-        const { point, tool: { view } } = e
-        const t = point.subtract(view.viewToProject(prev.point))
-        return {
-            tx: t.x,
-            ty: t.y,
-            x: x + t.x,
-            y: y + t.y,
-        }
-    }
     render() {
         const { mounted } = this.state
         const ref = this._ref && this._ref.getBoundingClientRect()
@@ -99,7 +85,7 @@ class Bio extends Component {
             <div ref={ref => this._ref = ref} className={'bio-holder'}>
                 { mounted &&
                 <View width={ ref.width } height={ ref.height } ref={ref => this._view = ref}>s
-                    <Rainbow width={ ref.width } height={ ref.height } onDrag={this.onDrag}  onUp={this.mouseUp}/>/>
+                    <Rainbow width={ ref.width } height={ 700 } onDrag={this.onDrag}  onUp={this.mouseUp}/>/>
                 </View>
                 }
             </div>
