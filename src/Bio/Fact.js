@@ -2,9 +2,19 @@ import React, { Component } from 'react'
 import uuid from 'uuid/v4'
 import { Layer, Group, Circle, PointText } from 'react-paper-bindings'
 import {RED, BLACK} from '../CONSTANTS'
+import PropTypes from 'prop-types'
 
 
-//@TODO rename variables responsible for animation
+const TWO_NUMBERS = (props, propName) => {
+    if (Array.isArray(props[propName]) &&
+        props[propName].length === 2 &&
+        props[propName].every(Number.isFinite)) {
+        return null
+    }
+
+    return new Error(`${propName} needs to be an array of two numbers`)
+}
+
 const STYLES = {
     body : {
         fillColor : BLACK,
@@ -32,25 +42,30 @@ class TextBlock extends Component {
 
     letterRefs = []
 
+    static propTypes = {
+        radius : PropTypes.number.isRequired,
+        showRadius : PropTypes.number.isRequired,
+        center : TWO_NUMBERS,
+    }
     componentDidMount() {
-        const { showRadius = 400, radius = 500, center = [ -200, 250 ] } = this.props
-        let angle = -60//-Math.acos(1 - 1 / 2 * (-300 / radius) ** 2) * 180 / Math.PIs
+        const { showRadius, radius, center } = this.props
+        let angle = -60
         this.letterRefs.forEach(
             (ref) => {
+                // show only if needed
                 if ( radius >= showRadius ) {
                     // width of each letter
                     let fontSize = ref.internalBounds.width + 1
-
                     // angle in rad since Math.acos uses radians
                     const radAngle = angle / 180 * Math.PI
                     // angle delta
                     const delta = Math.acos(1 - 1 / 2 * (fontSize / radius) ** 2)
-
                     // topRight position of current  letter
                     const posX = center[ 0 ] + radius * Math.cos(radAngle)
                     const posY = center[ 1 ] + radius * Math.sin(radAngle)
 
                     angle += delta * 180 / Math.PI
+
                     ref.rotation = 90 + angle
                     ref.bounds.topLeft.set(posX, posY)
                 }
@@ -59,7 +74,6 @@ class TextBlock extends Component {
     }
 
     render() {
-        // generate text.
         // @IMPORTANT SET POSITION USING REFS onComponentDidMount
         const { message, style } = this.props
 
@@ -81,9 +95,18 @@ class TextBlock extends Component {
 }
 class Fact extends Component {
 
-    render() {
+    static propTypes = {
+        radius : PropTypes.number.isRequired,
+        showRadius : PropTypes.number,
+        center : TWO_NUMBERS,
+        color : PropTypes.string,
+        body : PropTypes.string,
+        title : PropTypes.string
+    }
 
-        const {showRadius=400, center = [-200, 250], radius = 500, color = RED, header = '', body = '', title =''} = this.props
+    render() {
+        const {showRadius = 0, center, radius,
+            color = RED, header = '', body = '', title =''} = this.props
         const circleStyle = this.props.circleStyle || {
             radius : radius,
             fillColor : color,
