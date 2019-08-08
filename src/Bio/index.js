@@ -4,8 +4,6 @@ import {
     View
 } from 'react-paper-bindings'
 
-import Chain from './Chain'
-import Fact from './Fact'
 import Rainbow from './BioRainbow'
 class Bio extends Component {
 

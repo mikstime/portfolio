@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ab0676a-bf53-40d8-b521-aabe081042a3" name="Default Changelist" comment="Bio template">
+    <list default="true" id="2ab0676a-bf53-40d8-b521-aabe081042a3" name="Default Changelist" comment="Animation optimized.">
+      <change afterPath="$PROJECT_DIR$/src/Bio/AboutMe.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Bio/BioTemplate.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bio/AboutMeButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bio/AboutMeButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bio/AnimationWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bio/AnimationWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bio/AboutMeButton.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bio/BioRainbow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bio/BioRainbow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bio/Chain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bio/Chain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bio/Chain.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bio/Fact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bio/Fact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bio/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bio/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bio/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-16">
-              <caret line="85" column="37" lean-forward="true" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
+            <state relative-caret-position="213">
+              <caret line="102" column="23" lean-forward="true" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -56,33 +58,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bio/BioRainbow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="168">
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Bio/AboutMeButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="112" column="66" selection-start-line="112" selection-start-column="66" selection-end-line="112" selection-end-column="66" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-                <marker date="1565268815104" expanded="true" signature="3960:4262" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Bio/AboutMe.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+                <marker date="1565269834938" expanded="true" signature="3595:3897" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bio/AnimationWrapper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="89" column="59" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
+            <state relative-caret-position="195">
+              <caret line="161" column="57" lean-forward="true" selection-start-line="161" selection-start-column="57" selection-end-line="161" selection-end-column="57" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -151,8 +153,8 @@
       <find>looped</find>
       <find>showRad</find>
       <find>console.log()</find>
-      <find>console</find>
       <find>times</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>const</replace>
@@ -180,12 +182,13 @@
         <option value="$PROJECT_DIR$/src/Links/index.js" />
         <option value="$PROJECT_DIR$/src/Bio/BioTemplate.json" />
         <option value="$PROJECT_DIR$/src/Bio/LinearAnimationWrapper.js" />
-        <option value="$PROJECT_DIR$/src/Bio/index.js" />
-        <option value="$PROJECT_DIR$/src/Bio/BioRainbow.js" />
         <option value="$PROJECT_DIR$/src/Bio/Chain.js" />
         <option value="$PROJECT_DIR$/src/Bio/Fact.js" />
-        <option value="$PROJECT_DIR$/src/Bio/AboutMeButton.js" />
         <option value="$PROJECT_DIR$/src/Bio/AnimationWrapper.js" />
+        <option value="$PROJECT_DIR$/src/Bio/BioRainbow.js" />
+        <option value="$PROJECT_DIR$/src/Bio/index.js" />
+        <option value="$PROJECT_DIR$/src/Bio/AboutMeButton.js" />
+        <option value="$PROJECT_DIR$/src/Bio/AboutMe.js" />
       </list>
     </option>
   </component>
@@ -301,7 +304,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565118017548</updated>
-      <workItem from="1565118018937" duration="62921000" />
+      <workItem from="1565118018937" duration="63772000" />
     </task>
     <task id="LOCAL-00001" summary="Links created">
       <created>1565122721739</created>
@@ -387,11 +390,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565268948165</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="AnimationWrapper fix. Perfomance increased. onAnimationEnd callback">
+      <created>1565269031777</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1565269031777</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62921000" />
+    <option name="totallyTimeSpent" value="63772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -408,7 +418,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923833" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.12039312" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.12039312" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -523,36 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bio/Chain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-285">
-          <caret line="119" column="17" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!block;n#togglePulse#0;n#Chain#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bio/BioRainbow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bio/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="85" column="37" lean-forward="true" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bio/Fact.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -563,23 +543,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bio/AboutMeButton.js">
+    <entry file="file://$PROJECT_DIR$/src/Bio/Chain.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="112" column="66" selection-start-line="112" selection-start-column="66" selection-end-line="112" selection-end-column="66" />
+        <state relative-caret-position="-695">
+          <caret line="119" column="17" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <marker date="1565268815104" expanded="true" signature="3960:4262" ph="..." />
+            <element signature="n#!!block;n#togglePulse#0;n#Chain#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bio/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="102" column="23" lean-forward="true" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bio/AnimationWrapper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="89" column="59" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
+        <state relative-caret-position="195">
+          <caret line="161" column="57" lean-forward="true" selection-start-line="161" selection-start-column="57" selection-end-line="161" selection-end-column="57" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bio/BioRainbow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bio/AboutMe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <marker date="1565269834938" expanded="true" signature="3595:3897" ph="..." />
           </folding>
         </state>
       </provider>

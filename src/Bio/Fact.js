@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import uuid from 'uuid/v4'
-import { Layer, Group, Line, Circle, Rectangle, PointText } from 'react-paper-bindings'
-import {RED, BLACK, WHITE} from '../CONSTANTS'
+import { Layer, Group, Circle, PointText } from 'react-paper-bindings'
+import {RED, BLACK} from '../CONSTANTS'
 
 
 //@TODO rename variables responsible for animation
@@ -33,13 +33,11 @@ class TextBlock extends Component {
     letterRefs = []
 
     componentDidMount() {
-        const { radius = 500, center = [ -200, 250 ] } = this.props
-        let angle = -Math.acos(1 - 1 / 2 * (200 / radius) ** 2) * 180 / Math.PI
-
+        const { showRadius = 400, radius = 500, center = [ -200, 250 ] } = this.props
+        let angle = -60//-Math.acos(1 - 1 / 2 * (-300 / radius) ** 2) * 180 / Math.PIs
         this.letterRefs.forEach(
             (ref) => {
-                if ( this.props.showText || (!this.props.showText && radius > 500) ) {
-
+                if ( radius >= showRadius ) {
                     // width of each letter
                     let fontSize = ref.internalBounds.width + 1
 
@@ -54,7 +52,7 @@ class TextBlock extends Component {
 
                     angle += delta * 180 / Math.PI
                     ref.rotation = 90 + angle
-                    ref.bounds.topRight.set(posX, posY)
+                    ref.bounds.topLeft.set(posX, posY)
                 }
             }
         )
@@ -85,8 +83,7 @@ class Fact extends Component {
 
     render() {
 
-        const {center = [-200, 250], radius = 500, color = RED, header = '', body = '', title ='', showText = true} = this.props
-
+        const {showRadius=400, center = [-200, 250], radius = 500, color = RED, header = '', body = '', title =''} = this.props
         const circleStyle = this.props.circleStyle || {
             radius : radius,
             fillColor : color,
@@ -107,7 +104,7 @@ class Fact extends Component {
                             radius={ radius - 70 }
                             center={ center }
                             message={ body }
-                            showText={showText}
+                            showRadius={showRadius - 70}
                             style={ bodyStyle }
                         />
                         }
@@ -118,7 +115,7 @@ class Fact extends Component {
                             <TextBlock
                                 radius={ radius - 50 }
                                 center={ center }
-                                showText={showText}
+                                showRadius={showRadius - 50}
                                 message={ header }
                                 style={ headerStyle }
                             />
@@ -130,7 +127,6 @@ class Fact extends Component {
                                 onClick={this.props.onClick}
                                 justification='center'
                                 style={ titleStyle }
-                                showText={showText}
                                 point={ center }
                                 content={ title }
                             />
