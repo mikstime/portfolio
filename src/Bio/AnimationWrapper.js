@@ -5,6 +5,8 @@ export default function AnimationWrapper(WrappedComponent) {
 
     return class extends Component {
 
+        timesCalled = 0
+        onAnimationEnd = () => {} // callback can be set on setupAnimation
         state = {
             currentState : { },
             endState : { },
@@ -24,7 +26,7 @@ export default function AnimationWrapper(WrappedComponent) {
                     currentState : state.startState,
                     inProgress : true,
                     _needToComputeSteps : true
-                }), this.animate
+                })
             )
 
         }
@@ -33,8 +35,9 @@ export default function AnimationWrapper(WrappedComponent) {
             this.setState(
                 state => ({
                     currentState : state.endState,
+                    behavior : {},
                     inProgress : false,
-                })
+                }),this.onAnimationEnd
             )
         }
 
@@ -49,8 +52,7 @@ export default function AnimationWrapper(WrappedComponent) {
             this.setState(
                 state => ({
                     inProgress : true,
-                }),
-                this.animate
+                })
             )
         }
 
@@ -77,7 +79,7 @@ export default function AnimationWrapper(WrappedComponent) {
             this.setState({
                 computedSteps,
                 _needToComputeSteps : false
-            }, () => requestAnimationFrame(this.animate))
+            })
         }
 
         animate = () => {
@@ -86,20 +88,17 @@ export default function AnimationWrapper(WrappedComponent) {
                     this.computeSteps()
                 } else {
                     switch ( this.state.type ) {
-                        case "linear" :
-                            this.linearBehavior(); break;
+                        case "linear" :this.linearBehavior(); break;
                         case "linear-looped" : this.linearLoopedBehavior(); break;
                     }
                 }
             }
+            requestAnimationFrame(this.animate)
         }
         linearBehavior = () => {
-
             const { behavior : {_currentStep = 1},
                 numberOfSteps, computedSteps, currentState } = this.state
-
-            if ( _currentStep <= numberOfSteps ) {
-
+            if (  _currentStep <= numberOfSteps ) {
                 const newState = {}
                 for ( let key of Object.keys(computedSteps) ) {
                     newState[ key ] = currentState[ key ] + computedSteps[ key ]
@@ -108,31 +107,32 @@ export default function AnimationWrapper(WrappedComponent) {
                     currentState : newState,
                     behavior : {
                         _currentStep : _currentStep + 1,
-                    }
-                }, () => requestAnimationFrame(this.animate))
+                    },
+                })
 
+            } else {
+                this.endAnimation()
             }
         }
         linearLoopedBehavior = () => {
-
-            const { behavior : {_direction = 1 },
+            const { behavior : { direction },
                 startState, endState,
                 computedSteps, currentState } = this.state
+        if(direction) {
+            const newState = {}
+            for ( let key of Object.keys(computedSteps) ) {
+                newState[ key ] = currentState[ key ] + computedSteps[ key ] * direction
+            }
+            let testProp = Object.keys(newState)[ 0 ]
 
-                const newState = {}
-                for ( let key of Object.keys(computedSteps) ) {
-                    newState[ key ] = currentState[ key ] + computedSteps[ key ] * _direction
-                }
-                let testProp = Object.keys(newState)[0]
-
-            let newDirection = _direction
+            let newDirection = direction
 
             const inRange = (start, end, value) => {
-                    return ( start <= end ) ?
-                        start <= value && value <= end : inRange(end, start, value)
+                return (start <= end) ?
+                    start <= value && value <= end : inRange(end, start, value)
             }
-            for(let key of Object.keys(newState)) {
-                if(computedSteps[key] && !inRange(startState[key], endState[key], newState[key])) {
+            for ( let key of Object.keys(newState) ) {
+                if ( computedSteps[ key ] && !inRange(startState[ key ], endState[ key ], newState[ key ]) ) {
                     newDirection *= -1
                     break
                 }
@@ -141,10 +141,14 @@ export default function AnimationWrapper(WrappedComponent) {
                 currentState : newState,
                 behavior : {
                     _direction : newDirection
-                } }, () => requestAnimationFrame(this.animate))
-
+                }
+            })
+        } else {
+            this.endAnimation()
         }
-        setupAnimation = ({numberOfSteps, startState, endState, type}) => {
+        }
+        setupAnimation = ({numberOfSteps, startState, endState, type, onAnimationEnd}) => {
+            this.onAnimationEnd = onAnimationEnd
             this.setState(
                 {
                     type : type || 'linear',
@@ -152,12 +156,18 @@ export default function AnimationWrapper(WrappedComponent) {
                 }
             )
         }
+        componentDidMount() {
+            this.animate()
+        }
+
+        animationInProgress = () => this.state.inProgress
 
         render() {
             return(
                 <WrappedComponent
                     {...this.props}
                     {...this.state.currentState}
+                    animationInProgress={this.animationInProgress}
                     setupAnimation={this.setupAnimation}
                     startAnimation={this.startAnimation}
                     endAnimation={this.endAnimation}
