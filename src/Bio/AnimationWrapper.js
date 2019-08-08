@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
 
 export default function AnimationWrapper(WrappedComponent) {
 
@@ -36,23 +35,15 @@ export default function AnimationWrapper(WrappedComponent) {
                     currentState : state.endState,
                     behavior : {},
                     inProgress : false,
-                }),this.onAnimationEnd
+                }), this.onAnimationEnd
             )
         }
 
         pauseAnimation = () => {
-            this.setState(
-                state => ({
-                    inProgress : false,
-                })
-            )
+            this.setState({ inProgress : false })
         }
         continueAnimation = () => {
-            this.setState(
-                state => ({
-                    inProgress : true,
-                })
-            )
+            this.setState({ inProgress : true })
         }
 
         computeLinearSteps = () => {
@@ -92,7 +83,7 @@ export default function AnimationWrapper(WrappedComponent) {
                     }
                 }
             }
-            requestAnimationFrame(this.animate)
+            this._needUpdate && requestAnimationFrame(this.animate)
         }
         linearBehavior = () => {
             const { behavior : {currentStep = 1},
@@ -117,48 +108,83 @@ export default function AnimationWrapper(WrappedComponent) {
             const { behavior : { direction },
                 startState, endState,
                 computedSteps, currentState } = this.state
-        if(direction) {
-            const newState = {}
-            for ( let key of Object.keys(computedSteps) ) {
-                newState[ key ] = currentState[ key ] + computedSteps[ key ] * direction
-            }
-            let testProp = Object.keys(newState)[ 0 ]
-
-            let newDirection = direction
-
-            const inRange = (start, end, value) => {
-                return (start <= end) ?
-                    start <= value && value <= end : inRange(end, start, value)
-            }
-            for ( let key of Object.keys(newState) ) {
-                if ( computedSteps[ key ] && !inRange(startState[ key ], endState[ key ], newState[ key ]) ) {
-                    newDirection *= -1
-                    break
+            if(direction) {
+                const newState = {}
+                for ( let key of Object.keys(computedSteps) ) {
+                    newState[ key ] = currentState[ key ] + computedSteps[ key ] * direction
                 }
-            }
-            this.setState({
-                currentState : newState,
-                behavior : {
-                    direction : newDirection
+                let testProp = Object.keys(newState)[ 0 ]
+
+                let newDirection = direction
+
+                const inRange = (start, end, value) => {
+                    return (start <= end) ?
+                        start <= value && value <= end : inRange(end, start, value)
                 }
-            })
-        } else {
-            this.endAnimation()
+                for ( let key of Object.keys(newState) ) {
+                    if ( computedSteps[ key ] && !inRange(startState[ key ], endState[ key ], newState[ key ]) ) {
+                        newDirection *= -1
+                        break
+                    }
+                }
+                this.setState({
+                    currentState : newState,
+                    behavior : {
+                        direction : newDirection
+                    }
+                })
+            } else {
+                this.endAnimation()
+            }
         }
+
+        componentDidMount = () => {
+            this._needUpdate = true
+            this.animate()
+            window.addEventListener('resize', this.updateStates)
         }
+        componentWillUnmount = () => {
+            this._needUpdate = false
+            window.removeEventListener('resize', this.updateStates)
+        }
+
         setupAnimation = ({numberOfSteps, startState, endState, type, onAnimationEnd}) => {
             this.onAnimationEnd = onAnimationEnd
-            this.setState(
-                {
-                    type : type || 'linear',
-                    numberOfSteps, startState, endState,
-                    behavior : type !== 'linear' ? { direction : -1 } : 
-                        { currentStep : 1}
+
+            const start = typeof startState === 'function' ? startState() : startState
+            const end = typeof endState === 'function' ? endState() : endState
+
+            const newState= {
+                type : type || 'linear',
+                numberOfSteps, startState : start, endState : end,
+                currentState : start,
+                behavior : type !== 'linear' ? { direction : -1 } : { currentStep : 1},
+                onResize : {
+                    startState : typeof startState === 'function' ? startState : null,
+                    endState : typeof endState === 'function' ? endState : null,
                 }
-            )
+            }
+            this.setState(newState)
         }
-        componentDidMount() {
-            this.animate()
+
+        updateStates = () =>  {
+            const {onResize : {startState, endState}} = this.state
+
+            let newStartState, newEndState
+            if(typeof startState === 'function')
+                newStartState = startState()
+
+            if(typeof endState === 'function')
+                newEndState = endState()
+
+            if(newStartState || newEndState) {
+                this.setState((state)  =>  ({
+                    startState : newStartState || state.startState,
+                    endState : newEndState || state.endState,
+                    currentState : newEndState || state.endState,
+                    _needToComputeSteps : true
+                }))
+            }
         }
 
         animationInProgress = () => this.state.inProgress
