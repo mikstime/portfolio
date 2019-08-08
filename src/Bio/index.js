@@ -6,7 +6,7 @@ import {
 
 import Chain from './Chain'
 import Fact from './Fact'
-
+import Rainbow from './BioRainbow'
 class Bio extends Component {
 
     constructor(props) {
@@ -100,8 +100,8 @@ class Bio extends Component {
         return(
             <div ref={ref => this._ref = ref} className={'bio-holder'}>
                 { mounted &&
-                <View width={ ref.width } height={ ref.height } ref={ref => this._view = ref}>
-                    <Chain width={ ref.width } height={ ref.height } onDrag={this.onDrag}  onUp={this.mouseUp}/>
+                <View width={ ref.width } height={ ref.height } ref={ref => this._view = ref}>s
+                    <Rainbow width={ ref.width } height={ ref.height } onDrag={this.onDrag}  onUp={this.mouseUp}/>/>
                 </View>
                 }
             </div>
