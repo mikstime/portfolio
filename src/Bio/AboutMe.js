@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Layer } from 'react-paper-bindings'
 import Fact from './Fact'
 import PropTypes from 'prop-types'
-import AnimationWrapper from './AnimationWrapper'
+import AnimationWrapper from '../AnimationWrapper'
 import testData from './BioTemplate'
 import uuid from 'uuid/v4'
 
@@ -81,12 +81,20 @@ class AboutMe extends Component {
                 onAnimationEnd : this.onAnimationEnd
             }
             )
+        const el = document.getElementById('circles')
+        if(el)
+            el.style.display='none'
         this.props.startAnimation()
     }
     onAnimationEnd = () => {
         const {animationList, currentAnimation} = this.state
         if( animationList[currentAnimation] === "onClickAnimationReversed") {
             this.swapAnimation()
+        }
+        if( animationList[currentAnimation] === "onClickAnimation") {
+            const el = document.getElementById('circles')
+            if(el)
+                el.style.display=''
         }
     }
     swapAnimation = () => {
