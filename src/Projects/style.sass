@@ -1,27 +1,10 @@
 @import "../CONSTANTS"
-.projects-holder
-  width : 100%
-  min-width: 900px
-  background: $WHITE_BACKGROUND
-  height: 100vh
-  min-height: 900px
-  .circles
-    position: absolute
-    overflow: hidden
-    width: 100%
-    height: 100vh
-
-  .circle
-    position: absolute
-    top : 650px
-    left : -200px
-    transform-origin: center
-    border-bottom-left-radius: 600px
-    border-bottom-right-radius: 600px
-    width : 600px
-    height : 300px
-    background: red
-
+.circles-hidden
+  transition : 0s !important
+  opacity: 0 !important
+.circles
+  transition : .2s
+  opacity: 1
 .circles
   position: absolute
   top : 700px

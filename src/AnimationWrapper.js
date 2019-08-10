@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 export default function AnimationWrapper(WrappedComponent) {
 
@@ -113,7 +113,6 @@ export default function AnimationWrapper(WrappedComponent) {
                 for ( let key of Object.keys(computedSteps) ) {
                     newState[ key ] = currentState[ key ] + computedSteps[ key ] * direction
                 }
-                let testProp = Object.keys(newState)[ 0 ]
 
                 let newDirection = direction
 
@@ -122,9 +121,10 @@ export default function AnimationWrapper(WrappedComponent) {
                         start <= value && value <= end : inRange(end, start, value)
                 }
                 for ( let key of Object.keys(newState) ) {
-                    if ( computedSteps[ key ] && !inRange(startState[ key ], endState[ key ], newState[ key ]) ) {
+                    if ( computedSteps[ key ] && // If step is 0 property is constant and direction would change rapidly
+                        !inRange(startState[ key ], endState[ key ], newState[ key ]) ) {
                         newDirection *= -1
-                        break
+                        break // Avoid changing direction several times per frame.
                     }
                 }
                 this.setState({

@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import './style.sass'
 import PropTypes from 'prop-types'
-import testData from '../Bio/BioTemplate'
+import testData from './projects'
 import AnimationWrapper from '../AnimationWrapper'
-import Fact from '../Bio/Fact'
 import uuid from 'uuid/v4'
+import PostParser from './PostParser'
 const Circle = (props) => {
     const {zIndex, center, radius, color, onClick, isCurrent} = props
     const x = center[0], y = center[1]
@@ -16,9 +16,9 @@ const Circle = (props) => {
             height : `${ radius * 2 }px`,
             top : `${ -y - radius }px`,
             left : `${ x - radius }px`,
-            filter : `brightness(${isCurrent ? 1 : 0.8})`,
+            filter : `brightness(${isCurrent ? 0.3 : 0.1})`,
             zIndex,
-            backgroundColor : color,
+            backgroundColor : color,//isCurrent ? color : '#121212',
             borderRadius : `0 0 ${ radius * 2 }px ${ radius * 2 }px`
         } }>
         </div>
@@ -30,18 +30,24 @@ Circle.propTypes = {
 }
 class Circles extends Component {
 
+    static propTypes = {
+        parseContent : PropTypes.func.isRequired
+    }
     state = {
+        currentCircle : 3,
         onClickAnimationReversed : {
             type : "linear",
             startState : {
                 x : 100,
                 y : 50,
                 radius : 220,
+                circleWidth : 100
             },
             endState : {
                 x : 100,
                 y : 50,
-                radius : 200
+                radius : 200,
+                circleWidth : 100
             },
             numberOfSteps : 10
         },
@@ -50,12 +56,14 @@ class Circles extends Component {
             startState : {
                 x : 100,
                 y : 50,
-                radius : 200
+                radius : 200,
+                circleWidth : 100
             },
             endState : {
                 x : 100,
                 y : 50,
                 radius : 220,
+                circleWidth: 100
             },
             numberOfSteps : 10
         },
@@ -85,8 +93,10 @@ class Circles extends Component {
         }), this.startAnimation)
     }
     render() {
-        const {x, y, radius} = this.props
+        const {x, circleWidth, y, radius} = this.props
         const {currentCircle, currentAnimation} = this.state
+        const full = testData[0].full
+        const media = testData[0].mediaFull
         return (
             // this element is affected by src/Bio/AboutMe.js
             <div id='circles' className='circles'>
@@ -99,18 +109,23 @@ class Circles extends Component {
                                 center={[x, y]}
                                 isCurrent={currentCircle === (id + 1) * 2 + 1|| currentAnimation === 1}
                                 {...item}
+                                color={currentAnimation === 0 ? testData[(currentCircle - 1) / 2 - 1].color : item.color}
                                 zIndex={ (id + 1) * 2 + 1}
-                                radius={radius +  100 * (testData.length) - (id) * 100}/>
+                                radius={radius +  circleWidth * (testData.length - 1) - (id) * circleWidth}/>
                         )
                     )
                 }
                 <div className='project-body' style={{
+                    background : currentAnimation === 0 ? testData[(currentCircle - 1) / 2 - 1].color : '',
+                    filter : `brightness(${currentAnimation === 1 ? 1 : 0.3})`,
                     zIndex: currentAnimation === 1 ? -1 : 2//currentCircle - 1
-                }}/>
+                }}>
+                    {/*{this.props.parseContent(full, media)}*/}
+                </div>
             </div>
         )
     }
 }
 
-export default Circles
-export const AnimatedCircles = AnimationWrapper(Circles)
+export default PostParser(Circles)
+export const AnimatedCircles = PostParser(AnimationWrapper(Circles))
