@@ -83,7 +83,7 @@ class AboutMe extends Component {
             )
         const el = document.getElementById('circles')
         if(el)
-            el.style.display='none'
+            el.classList.add('circles-hidden')
         this.props.startAnimation()
     }
     onAnimationEnd = () => {
@@ -94,7 +94,7 @@ class AboutMe extends Component {
         if( animationList[currentAnimation] === "onClickAnimation") {
             const el = document.getElementById('circles')
             if(el)
-                el.style.display=''
+                el.classList.remove('circles-hidden')
         }
     }
     swapAnimation = () => {
