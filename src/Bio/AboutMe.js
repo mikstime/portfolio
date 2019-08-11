@@ -84,6 +84,7 @@ class AboutMe extends Component {
         const el = document.getElementById('circles')
         if(el)
             el.classList.add('circles-hidden')
+
         this.props.startAnimation()
     }
     onAnimationEnd = () => {
@@ -91,6 +92,7 @@ class AboutMe extends Component {
         if( animationList[currentAnimation] === "onClickAnimationReversed") {
             this.swapAnimation()
         }
+        //@TODO get rid of this
         if( animationList[currentAnimation] === "onClickAnimation") {
             const el = document.getElementById('circles')
             if(el)
@@ -98,9 +100,11 @@ class AboutMe extends Component {
         }
     }
     swapAnimation = () => {
+
         this.setState(state => ({
             currentAnimation : (state.currentAnimation + 1) % (state.animationList.length),
         }), this.startAnimation)
+
     }
     componentDidMount() {
         this.startAnimation()

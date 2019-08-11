@@ -1,7 +1,9 @@
 @import "../CONSTANTS"
+canvas
+  display: block
 .bio-holder
   width: 100%
   min-width: 900px
   min-height: 2 * $BIO_HEIGHT //700 is min
   height: calc(700px + 100vh)
-  background: linear-gradient(to bottom, $BLACK_BACKGROUND 0%, $BLACK_BACKGROUND $BIO_HEIGHT, $WHITE_BACKGROUND $BIO_HEIGHT, $WHITE_BACKGROUND 100%) //$BLACK_BACKGROUND
+  background: $BLACK_BACKGROUND //linear-gradient(to bottom, $BLACK_BACKGROUND 0%, $BLACK_BACKGROUND $BIO_HEIGHT, $WHITE_BACKGROUND $BIO_HEIGHT, $WHITE_BACKGROUND 100%) //$BLACK_BACKGROUND

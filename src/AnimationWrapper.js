@@ -192,8 +192,8 @@ export default function AnimationWrapper(WrappedComponent) {
         render() {
             return(
                 <WrappedComponent
-                    {...this.props}
                     {...this.state.currentState}
+                    {...this.props}
                     animationInProgress={this.animationInProgress}
                     setupAnimation={this.setupAnimation}
                     startAnimation={this.startAnimation}

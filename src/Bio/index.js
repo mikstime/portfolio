@@ -32,7 +32,6 @@ class Bio extends Component {
     componentDidMount() {
         this.setState({ mounted: true })
         window.addEventListener('resize', this.onWindowResize)
-        console.log(this._ref.getBoundingClientRect())
     }
     componentWillUnmount() {
         this.setState({ mounted: false })
@@ -43,49 +42,14 @@ class Bio extends Component {
         window.removeEventListener('resize', this.resizeWindow)
     }
 
-
-    onDrag = (e) => {
-
-        const { event: { touches }, tool: { view } } = e
-        if (touches && touches.length === 2) {
-            // pinch zoom
-            if (!this._pinch) {
-                this._pinch = this.getPinchEventData(e)
-                return
-            }
-            const prev = this._pinch
-            const next = this.getPinchEventData(e)
-            //this.setState(this.getPinchEventState(e, prev, next))
-            const {tx, ty} = this.getPinchEventState(e, prev, next)
-            view.translate(tx, ty)
-            this._pinch = next
-        } else {
-            // pan
-            if (!this._pan) {
-                this._pan = this.getPanEventData(e)
-                return
-            }
-            const prev = this._pan
-            const next = this.getPanEventData(e)
-            //this.setState(this.getPanEventState(e, prev, next))
-            // transform view manually
-            const { tx, ty } = this.getPanEventState(e, prev, next)
-            view.translate(tx, ty)
-            this._pan = next
-        }
-    }
-    mouseUp = (e) => {
-        this._pan = null
-        this._pinch = null
-    }
     render() {
         const { mounted } = this.state
         const ref = this._ref && this._ref.getBoundingClientRect()
         return(
             <div ref={ref => this._ref = ref} className={'bio-holder'}>
                 { mounted &&
-                <View width={ ref.width } height={ ref.height } ref={ref => this._view = ref}>s
-                    <Rainbow width={ ref.width } height={ 700 } onDrag={this.onDrag}  onUp={this.mouseUp}/>/>
+                <View width={ ref.width } height={ ref.height } ref={ref => this._view = ref}>
+                    <Rainbow width={ ref.width } height={ 700 }/>
                 </View>
                 }
             </div>

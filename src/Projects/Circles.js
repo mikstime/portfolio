@@ -1,26 +1,35 @@
-import React, {Component} from 'react'
+import React, { Component, Fragment } from 'react'
 import './style.sass'
 import PropTypes from 'prop-types'
 import testData from './projects'
 import AnimationWrapper from '../AnimationWrapper'
 import uuid from 'uuid/v4'
 import PostParser from './PostParser'
+import ProjectHolder from './ProjectHolder'
+
+testData.forEach( item => item.id = uuid())
+//@TODO add image to project
+//@TODO add link to project
+//@TODO make title for each project
+//@TODO optimize
+//@TODO fix layout
 const Circle = (props) => {
-    const {zIndex, center, radius, color, onClick, isCurrent} = props
+    const {id, title, center, fillInner = false, className='',radius, color, onClick, isCurrent} = props
     const x = center[0], y = center[1]
+    const classes = (isCurrent ? 'circle-is-chosen' : 'circle') +' ' + className
     return(
         <div
-            onClick={() =>onClick(zIndex)}
-            className='circle' style={ {
-            width : `${ radius * 2 }px`,
-            height : `${ radius * 2 }px`,
+            onClick={() =>onClick(id)}
+            className={classes} style={ {
+            width : `${ (radius - 100)* 2 }px`,
+            height : `${ (radius - 100) * 2 }px`,
+            borderColor : color,
+            backgroundColor : fillInner ? color : '',
             top : `${ -y - radius }px`,
             left : `${ x - radius }px`,
-            filter : `brightness(${isCurrent ? 0.3 : 0.1})`,
-            zIndex,
-            backgroundColor : color,//isCurrent ? color : '#121212',
-            borderRadius : `0 0 ${ radius * 2 }px ${ radius * 2 }px`
         } }>
+            {title &&<p>{title}</p>}
+            {props.children}
         </div>
     )
 }
@@ -86,42 +95,39 @@ class Circles extends Component {
     componentDidMount() {
         this.startAnimation()
     }
-    swapAnimation = (zIndex) => {
+    swapAnimation = (id) => {
         this.setState(state => ({
-            currentCircle : zIndex,
+            currentCircle : id,
             currentAnimation : (state.currentAnimation + 1) % (state.animationList.length),
         }), this.startAnimation)
     }
     render() {
-        const {x, circleWidth, y, radius} = this.props
+        const {x, circleWidth, y, radius, descriptor, isShown} = this.props
         const {currentCircle, currentAnimation} = this.state
-        const full = testData[0].full
-        const media = testData[0].mediaFull
         return (
-            // this element is affected by src/Bio/AboutMe.js
-            <div id='circles' className='circles'>
+             <div id='circles'>
                 {
-                    this.props.descriptor.map(
+                    descriptor.map(
                         (item, id) => (
                             <Circle
-                                key={uuid()}
+                                key={item.id}
                                 onClick={ this.swapAnimation }
-                                center={[x, y]}
-                                isCurrent={currentCircle === (id + 1) * 2 + 1|| currentAnimation === 1}
+                                center={[x - 1, y]}
+                                fillInner={id === descriptor.length - 1}
+                                title={currentAnimation === 0 && item.header}
+                                isCurrent={currentCircle === id || currentAnimation === 1}
                                 {...item}
-                                color={currentAnimation === 0 ? testData[(currentCircle - 1) / 2 - 1].color : item.color}
-                                zIndex={ (id + 1) * 2 + 1}
-                                radius={radius +  circleWidth * (testData.length - 1) - (id) * circleWidth}/>
+                                color={currentAnimation === 0 ? descriptor[currentCircle].color : item.color}
+                                id={ id }
+                                radius={radius +  circleWidth * (descriptor.length - 1) - (id) * circleWidth - 1}/>
                         )
                     )
                 }
                 <div className='project-body' style={{
-                    background : currentAnimation === 0 ? testData[(currentCircle - 1) / 2 - 1].color : '',
-                    filter : `brightness(${currentAnimation === 1 ? 1 : 0.3})`,
-                    zIndex: currentAnimation === 1 ? -1 : 2//currentCircle - 1
-                }}>
-                    {/*{this.props.parseContent(full, media)}*/}
+                    background : currentAnimation === 0 ? descriptor[currentCircle].color : '',
+                    }}>
                 </div>
+                {currentAnimation === 0 && <ProjectHolder {...descriptor[currentCircle]}/>}
             </div>
         )
     }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import uuid from 'uuid/v4'
 import PropTypes from 'prop-types'
 
@@ -23,7 +23,7 @@ export default function (WrappedComponent) {
                     if ( part.length > 0 ) {
                         ParsedText.push(
                             React.createElement(
-                                "span", {
+                                'div', {
                                     key : uuid(),
                                     dangerouslySetInnerHTML : {
                                         __html : part

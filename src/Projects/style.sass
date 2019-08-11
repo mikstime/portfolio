@@ -1,11 +1,15 @@
 @import "../CONSTANTS"
+
+$circleCenterX : 100px
+$circleCenterY : -50px
+$maxRadius : 720px
 .circles-hidden
   transition : 0s !important
-  opacity: 0 !important
-.circles
-  transition : .2s
+  display: none !important
+#circles
+  transition : opacity .2s
   opacity: 1
-.circles
+#circles
   position: absolute
   top : 700px
   overflow: hidden
@@ -13,15 +17,33 @@
   min-width: 900px
   height: 100vh
   min-height: 750px
+.circle, .circle-is-chosen
+  position: absolute
+  transform-origin: center
+  border-width: 101px
+  border-style: solid
+  border-radius: 0 0 100% 100%
+  background: transparent
 
-  .circle
+  p
+    display: block
     position: absolute
-    top : -50px
-    left : -200px
-    transform-origin: center
-    border-bottom-left-radius: 100%
-    border-bottom-right-radius: 50%
-    background: red
+    text-align: left
+    left: calc( 50% - 95px)
+    font-size: 20px
+    bottom: -60px
+
+.circle
+  z-index: 101
+  filter : brightness(15%)
+  color : transparent
+
+.circle-is-chosen
+  z-index: 103
+  color : $BLACK_BACKGROUND
+  filter : brightness(80%)
+  &:hover
+    cursor: pointer
 
 .project-body
   position: absolute
@@ -29,3 +51,64 @@
   width: 100%
   height: 100%
   background : $WHITE_BACKGROUND
+
+.project-body-hidden
+  filter :  brightness(80%)
+  z-index : 1
+
+
+.content-holder-circle
+  float: left
+  border-radius: 100%
+  margin-left : -$maxRadius
+  margin-top: -$maxRadius
+  shape-outside: circle(725px at $circleCenterX $circleCenterY)
+  width: calc(100% + 1440px)
+  height: calc(100vh + 800px)
+
+.project-image
+  top : $circleCenterY
+  left: $circleCenterX - $maxRadius
+  position : absolute
+  width : $maxRadius * 2
+  height : $maxRadius
+  background-image: url("./test.jpg")
+  background-position: right
+  background-repeat: no-repeat
+  background-size: cover
+  opacity: 0.1
+  border-radius: 0 0 $maxRadius $maxRadius
+
+.content-holder
+  margin : 0
+  padding: 0
+  z-index: 102
+  min-height: 100vh
+  width: 100%
+  text-align: left
+  position : absolute
+  transform-origin: center
+  filter : brightness(100%)
+  color : $BLACK_BACKGROUND
+
+  p
+    font-size: 20px
+  a
+    display: block
+    position: absolute
+    min-width: 50px
+    z-index: 10020
+    right: 0
+    margin-top : 10px
+    background: red
+    padding-right: 20px
+    text-decoration: none
+    text-indent: 7px
+    color : $WHITE_BACKGROUND
+    background: $BLACK_BACKGROUND
+
+    &:hover
+      &:hover
+        opacity: 0.9
+      &:active
+        opacity: 0.8
