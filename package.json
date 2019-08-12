@@ -13,6 +13,8 @@
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
+    "scroll": "^3.0.1",
+    "scroll-doc": "^0.2.1",
     "uuid": "^3.3.2"
   },
   "scripts": {

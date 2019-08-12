@@ -1,22 +1,30 @@
 @import "../CONSTANTS"
-
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap')
 $circleCenterX : 100px
 $circleCenterY : -50px
 $maxRadius : 720px
 .circles-hidden
-  transition : 0s !important
-  display: none !important
+  .project-body
+    opacity: 0 !important
+    transition: opacity 0s !important
+  .circle, .circle-is-chosen
+    opacity: 0
+    transition: opacity 0s
+
 #circles
-  transition : opacity .2s
+  transition : opacity .3s
+  .project-body
+    opacity: 1
+    transition: opacity 2s ease-out
   opacity: 1
 #circles
   position: absolute
   top : 700px
   overflow: hidden
   width : 100%
-  min-width: 900px
+  min-width: 980px
   height: 100vh
-  min-height: 750px
+  min-height: 751px
 .circle, .circle-is-chosen
   position: absolute
   transform-origin: center
@@ -29,8 +37,8 @@ $maxRadius : 720px
     display: block
     position: absolute
     text-align: left
-    left: calc( 50% - 95px)
-    font-size: 20px
+    left: calc( 50% - 90px)
+    font-size: 30px
     bottom: -60px
 
 .circle
@@ -47,10 +55,21 @@ $maxRadius : 720px
 
 .project-body
   position: absolute
-  opacity: 1
   width: 100%
-  height: 100%
+  height: 100vh
+  transition: .1s
+  opacity: 1
   background : $WHITE_BACKGROUND
+  transition-property : width, height, margin, border-radius
+
+.project-body-show
+  width: 99%
+  height: 651px
+  margin-right: 1%
+  transition: .4s, opacity 2s
+  transition-property : width, height, margin, border-radius
+  margin-bottom : 1%
+  border-radius: 0 50px 100px 100px
 
 .project-body-hidden
   filter :  brightness(80%)
@@ -97,7 +116,6 @@ $maxRadius : 720px
     display: block
     position: absolute
     min-width: 50px
-    z-index: 10020
     right: 0
     margin-top : 10px
     background: red
@@ -112,3 +130,28 @@ $maxRadius : 720px
         opacity: 0.9
       &:active
         opacity: 0.8
+
+$width : 100% / 7
+
+.click-on-rainbow
+  display: flex
+  justify-content: center
+  align-items: center
+
+  position : absolute
+  right : 0
+
+  min-width: 100px
+  width: calc(100% - 700px)
+  height: 100%
+
+  filter : brightness(100%)
+  h1
+    color : $BLACK_BACKGROUND
+    text-align: center
+    max-width: 400px
+    font-size: 3em
+    transform: rotate(-30deg)
+    font-family: 'Dancing Script', cursive
+
+    //background: linear-gradient( $RAINBOW_RED 0, $RAINBOW_RED $width, $RAINBOW_ORANGE $width, $RAINBOW_ORANGE 2 * $width, $RAINBOW_YELLOW 2 * $width, $RAINBOW_YELLOW 3 * $width, $RAINBOW_GREEN 3 * $width, $RAINBOW_GREEN 4 * $width, $RAINBOW_BLUE 4 * $width, $RAINBOW_BLUE 5 * $width, $RAINBOW_PURPLE 5 * $width, $RAINBOW_PURPLE 6 * $width, $RAINBOW_PINK 6 * $width, $RAINBOW_PINK 7 * $width)

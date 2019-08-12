@@ -6,6 +6,10 @@ import AnimationWrapper from '../AnimationWrapper'
 import testData from './BioTemplate'
 import uuid from 'uuid/v4'
 
+
+import scroll from 'scroll'
+import doc from 'scroll-doc'
+const page = doc()
 class AboutMe extends Component {
 
     static propTypes = {
@@ -89,14 +93,50 @@ class AboutMe extends Component {
     }
     onAnimationEnd = () => {
         const {animationList, currentAnimation} = this.state
+
         if( animationList[currentAnimation] === "onClickAnimationReversed") {
+            document.body.classList.add('unscrollable')
             this.swapAnimation()
+            console.log(1)
+            const options = { duration: 500 }
+            if(this.cancel1) {
+                this.cancel1()
+                this.cancel1 = false
+            }
+            this.cancel = scroll.top(page, 0, options, function (err, scrollTop) {
+                console.log(err)
+                // => Scroll cancelled
+            })
+            const remove = () => {
+                this.cancel()
+                page.removeEventListener('wheel', remove)
+            }
+            //page.addEventListener('wheel', remove)
         }
-        //@TODO get rid of this
+
         if( animationList[currentAnimation] === "onClickAnimation") {
+            document.body.classList.remove('unscrollable')
             const el = document.getElementById('circles')
             if(el)
                 el.classList.remove('circles-hidden')
+            if(this.cancel) {
+                this.cancel()
+                this.cancel = false
+            }
+            setTimeout(
+                () => {
+                    const options = { duration: 1000 }
+                    this.cancel1 = scroll.top(page, 700, options, function (err, scrollTop) {
+                        console.log(err)
+                        // => Scroll cancelled
+                    })
+                    const remove = () => {
+                        this.cancel1()
+                        page.removeEventListener('wheel', remove)
+                    }
+                    //page.addEventListener('wheel', remove)
+                }, 1000
+            )
         }
     }
     swapAnimation = () => {
@@ -107,6 +147,7 @@ class AboutMe extends Component {
 
     }
     componentDidMount() {
+        document.body.classList.add('unscrollable')
         this.startAnimation()
     }
 

@@ -102,7 +102,7 @@ class Circles extends Component {
         }), this.startAnimation)
     }
     render() {
-        const {x, circleWidth, y, radius, descriptor, isShown} = this.props
+        const { x, circleWidth, y, radius, descriptor } = this.props
         const {currentCircle, currentAnimation} = this.state
         return (
              <div id='circles'>
@@ -123,11 +123,15 @@ class Circles extends Component {
                         )
                     )
                 }
-                <div className='project-body' style={{
+                <div className={'project-body' + (currentAnimation === 0 ? '' : ' project-body-show')} style={{
                     background : currentAnimation === 0 ? descriptor[currentCircle].color : '',
                     }}>
                 </div>
-                {currentAnimation === 0 && <ProjectHolder {...descriptor[currentCircle]}/>}
+                {currentAnimation === 0 && <ProjectHolder onImageClick={this.swapAnimation} {...descriptor[currentCircle]}/>}
+                 {currentAnimation === 1 &&
+                 <div className='click-on-rainbow'>
+                     <h1>Click on Rainbow to Checkout my Projects</h1>
+                 </div>}
             </div>
         )
     }

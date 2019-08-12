@@ -29,20 +29,7 @@ class LinkHolder  extends Component {
     state = {
         needToShow : true
     }
-    handleScroll = (e) => {
-        if(window.pageYOffset > 650 && this.state.needToShow === true) {
-            this.setState({needToShow : false})
-        }
-        if(window.pageYOffset <= 650 && this.state.needToShow === false) {
-            this.setState({needToShow : true})
-        }
-    }
-    componentDidMount = () => {
-        window.addEventListener('scroll', this.handleScroll)
-    }
-    componentWillUnmount = () => {
-        window.removeEventListener('scroll', this.handleScroll)
-    }
+
     render() {
         const { needToShow } = this.state
         const className= 'links-holder' + (needToShow ? '' : '-hidden')

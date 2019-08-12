@@ -9,14 +9,16 @@ import PropTypes from 'prop-types'
 class ProjectHolder extends Component {
 
     static propTypes = {
-        text : PropTypes.string.isRequired
+        text : PropTypes.string.isRequired,
+        onImageClick : PropTypes.func
     }
     render() {
         console.log(this.props.image)
         return(
             <div className={'content-holder'}>
                 <span className={'content-holder-circle'}/>
-                <div className='project-image' style={{
+                <div onClick={this.props.onImageClick} className='project-image' style={{
+                    cursor : this.props.onImageClick ? 'pointer' : '',
                     backgroundImage : this.props.image ?`url("${this.props.image}")` : ''
                 }}/>
                 <p>{this.props.text_en}</p>

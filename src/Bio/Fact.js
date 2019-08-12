@@ -21,21 +21,21 @@ const STYLES = {
         fillColor : BLACK,
         rotation : 80,
         fontSize: 16,
-        fontFamily : 'Blinker',
+        fontFamily: "'Comfortaa'",
         fontWeight : 'normal',
     },
     header : {
         fillColor : BLACK,
         fontSize : 20,
         rotation : 90,
-        fontFamily : 'Blinker',
+        fontFamily : 'Play',
         fontWeight : 'bold',
     },
     title : {
         fillColor : BLACK,
         rotation : 80,
         fontSize: 48,
-        fontFamily : 'Blinker',
+        fontFamily : "'Blinker', sans-serif",
         fontWeight : 'normal',
     }
 }
