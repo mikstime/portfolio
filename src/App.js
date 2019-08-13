@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Links from './Links'
-import Bio from './Bio'
+import Bio from './BioRefactored'
 import Projects from './Projects'
 class App extends Component {
 

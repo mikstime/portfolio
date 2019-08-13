@@ -31,6 +31,7 @@ class Bio extends Component {
     }
     componentDidMount() {
 
+
         this.setState({ mounted: true })
         window.addEventListener('resize', this.onWindowResize)
     }

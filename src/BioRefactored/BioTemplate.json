@@ -1,0 +1,31 @@
+[
+  {
+    "header" : "Birth",
+    "body" : "4 may 2000",
+    "color" : "#FF3636"
+  },
+  {
+    "header" : "Education",
+    "body" : "graduated from Lyceum under BMSTU in 2018",
+    "color" : "#FF6A38"
+  },
+  {
+    "header" : "Sophomore",
+    "body" : "at Bauman Moscow State Technical University",
+    "color" : "#FFF242"
+  },
+  {
+    "header" : "Front End Skills",
+    "body" : "React Redux Sass Electron",
+    "color": "#B0FF42"
+  },
+  {
+    "header" : "Back End Skills",
+    "body" : "Node.js Mongoose Express",
+    "color" : "#4ACCFF"
+  },
+  {
+    "title" : "About Me",
+    "color" : "#DE59FF"
+  }
+]

@@ -150,10 +150,8 @@ export default function AnimationWrapper(WrappedComponent) {
 
         setupAnimation = ({numberOfSteps, startState, endState, type, onAnimationEnd}) => {
             this.onAnimationEnd = onAnimationEnd
-
             const start = typeof startState === 'function' ? startState() : startState
             const end = typeof endState === 'function' ? endState() : endState
-
             const newState= {
                 type : type || 'linear',
                 numberOfSteps, startState : start, endState : end,

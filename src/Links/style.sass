@@ -6,6 +6,8 @@
 .links-holder
   height : 50px
 .links-holder, .links-holder-hidden
+  background: $BLACK_BACKGROUND
+  z-index : 2
   position: fixed
   list-style: none
   display: flex
@@ -25,7 +27,6 @@
       width: 100%
       height: 100%
       transition: opacity .1s
-      background: $BLACK_BACKGROUND
       &:hover
         opacity: 1
       &:active

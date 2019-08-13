@@ -1,24 +1,27 @@
 import React, { Component, Fragment } from 'react'
-import { Layer } from 'react-paper-bindings'
-import Fact from './Fact'
 import PropTypes from 'prop-types'
+
+import { Layer, View } from 'react-paper-bindings'
+
 import AnimationWrapper from '../AnimationWrapper'
-import testData from './BioTemplate'
-import uuid from 'uuid/v4'
+import ColoredCircle from './ColoredCircle'
 
 import scroll from 'scroll'
 import doc from 'scroll-doc'
-const page = doc()
+
+const page = doc() // look at onAnimationEnd method
+
 class AboutMe extends Component {
 
-
     static propTypes = {
+        descriptor : PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
         setupAnimation : PropTypes.func.isRequired,
         startAnimation : PropTypes.func.isRequired,
         endAnimation : PropTypes.func.isRequired,
-        x : PropTypes.number,
-        y : PropTypes.number,
-        radius : PropTypes.number
+        // x : PropTypes.number.isRequired,
+        // y : PropTypes.number.isRequired,
+        // radius : PropTypes.number.isRequired,
+        // infoRadius : PropTypes.number.isRequired
     }
 
     state = {
@@ -78,6 +81,7 @@ class AboutMe extends Component {
         currentAnimation : 0
     }
     startAnimation = () => {
+
         const {animationList, currentAnimation} = this.state
         this.props.setupAnimation(
             {
@@ -139,31 +143,34 @@ class AboutMe extends Component {
     }
 
     render() {
-        const {x, y, radius, infoRadius} = this.props
+        const {x, y, radius, infoRadius, descriptor} = this.props
+        console.log(x && y && radius && infoRadius )
         return(
             <Fragment>
-            <Layer>
-                {infoRadius && testData.map((descr, id) => (
-                    <Fact key={ uuid() }
-                          center={ [ x, y ] }
-                          showRadius={ 300 + 100 * (testData.length - 1) - (id) * 100 - 100 }
-                          onClick={ this.swapAnimation }
-                          radius={ radius + infoRadius * (testData.length - 1) - (id) * infoRadius }
-                          { ...descr }
-                    />))
-                }
-            </Layer>
-                <Layer>
-                {radius &&
-                <Fact
-                    onClick={this.swapAnimation}
-                    color='#DE59FF'
-                    title={ 'About Me' }
-                    radius={ radius - infoRadius }
-                    center={ [ x, y ] }
-                />
-                }
-            </Layer>
+                <View onClick={this.swapAnimation} width={this.props.widthC} height={this.props.heightC}>
+                    <Layer>
+                        {radius && descriptor.map((item, id) => (
+                            <ColoredCircle key={ item.id }
+                                  center={ [ x, y ] }
+                                  onClick={ this.swapAnimation }
+                                  radius={ radius + infoRadius * (descriptor.length - 1) - (id) * infoRadius }
+                                  color={item.color}
+                            />))
+                        }
+                    </Layer>
+                </View>
+                {this.props.children}
+                <View onClick={this.swapAnimation} width={this.props.widthC} height={this.props.heightC}>
+                    <Layer>
+                        {radius &&
+                        <ColoredCircle
+                            color='#DE59FF'
+                            radius={ radius - infoRadius }
+                            center={ [ x, y ] }
+                        />
+                        }
+                    </Layer>
+                </View>
             </Fragment>
         )
     }
