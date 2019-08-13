@@ -97,21 +97,16 @@ class AboutMe extends Component {
         if( animationList[currentAnimation] === "onClickAnimationReversed") {
             document.body.classList.add('unscrollable')
             this.swapAnimation()
-            console.log(1)
             const options = { duration: 500 }
             if(this.cancel1) {
                 this.cancel1()
                 this.cancel1 = false
             }
-            this.cancel = scroll.top(page, 0, options, function (err, scrollTop) {
-                console.log(err)
-                // => Scroll cancelled
-            })
+            this.cancel = scroll.top(page, 0, options)
             const remove = () => {
                 this.cancel()
                 page.removeEventListener('wheel', remove)
             }
-            //page.addEventListener('wheel', remove)
         }
 
         if( animationList[currentAnimation] === "onClickAnimation") {
@@ -126,15 +121,7 @@ class AboutMe extends Component {
             setTimeout(
                 () => {
                     const options = { duration: 1000 }
-                    this.cancel1 = scroll.top(page, 700, options, function (err, scrollTop) {
-                        console.log(err)
-                        // => Scroll cancelled
-                    })
-                    const remove = () => {
-                        this.cancel1()
-                        page.removeEventListener('wheel', remove)
-                    }
-                    //page.addEventListener('wheel', remove)
+                    this.cancel1 = scroll.top(page, 700, options)
                 }, 1000
             )
         }

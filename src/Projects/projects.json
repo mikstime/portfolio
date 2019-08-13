@@ -1,0 +1,43 @@
+[
+  {
+    "header" : "Undefined4",
+    "text_en" : "Nunc ut purus metus. In placerat neque id mollis malesuada. Donec et metus at lorem consequat varius. Integer et varius sem. Ut vel lorem luctus, laoreet nisi non, pulvinar urna. Ut elit justo, commodo sed augue et, aliquam suscipit est. Mauris gravida laoreet elit, dictum volutpat nisl tempus quis. In vel nisi vel augue fermentum dictum. Curabitur vel convallis dui, eget pretium nisi. Aliquam posuere lobortis ornare. Nam at arcu aliquet, pharetra velit eget, hendrerit sem. Cras et risus eget lacus condimentum rutrum nec sit amet erat. Vestibulum nec faucibus ex, porttitor interdum libero. Quisque ac nisi dapibus, dignissim leo finibus, ultrices eros. Etiam non turpis ac mi bibendum iaculis luctus sed velit. Maecenas ac erat et nisl lacinia congue.",
+    "color" : "#FF3636",
+    "image" : "./imgs/desert.jpg"
+  },
+  {
+    "header" : "Omega Project V3",
+    "text_en" : "Nullam ultrices, erat eget semper eleifend, lorem odio dignissim sem, at consectetur eros eros ut ligula. Aliquam erat volutpat. Vivamus lacus mi, ornare non ullamcorper eget, vulputate sed nisl. Nulla dapibus purus dolor, tempus ultrices nulla euismod ut. Aliquam aliquet interdum lacus quis ultricies. Proin porttitor mattis ultricies. Sed velit ex, molestie ut ex eu, dictum aliquet ipsum. Suspendisse non viverra erat. Suspendisse eu ex a ligula convallis placerat id id sapien.\n\nUt lacinia quis odio vitae luctus. Fusce dignissim ut nulla eget consectetur. Sed volutpat velit finibus ante lobortis, vel luctus ligula ornare. Praesent ultricies, metus id viverra pellentesque, metus leo posuere nibh, vel rhoncus neque neque quis lectus. Nunc luctus, diam ut semper aliquet, elit lectus porttitor lorem.",
+    "color" : "#FF6A38",
+    "image" : "./imgs/lava.jpg"
+  },
+  {
+    "header" : "Project Name",
+    "text_en" : "Vivamus nec quam eget eros sodales fringilla sed vitae purus. Quisque venenatis pretium massa, vitae semper dui malesuada at. Phasellus faucibus venenatis arcu, ut hendrerit ipsum porttitor vitae. Mauris ut pretium ipsum, eu venenatis lacus. Sed malesuada nulla velit, eget semper elit viverra ac. Pellentesque laoreet feugiat velit, eu tristique libero tempor at. Mauris hendrerit purus at orci efficitur, vel suscipit mi porttitor. Nulla id porttitor turpis. Cras semper id purus at euismod. Nullam sed facilisis turpis. Quisque magna massa, venenatis sagittis varius at, luctus at sapien. Suspendisse sagittis ac est sit amet venenatis. Quisque pretium nisl ante, et sodales eros dapibus sed. Suspendisse egestas id tortor imperdiet pretium. Etiam dictum massa sem, sed accumsan libero tincidunt vel. Proin at.",
+    "color" : "#FFF242",
+    "image" : "./imgs/mountain.jpg"
+  },
+  {
+    "header" : "Unusual Header",
+    "text_en" : "Sed imperdiet facilisis tortor, ac efficitur ipsum ultricies in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vulputate laoreet justo egestas gravida. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum viverra urna sagittis rhoncus. Integer tincidunt ante ut velit rutrum, ac commodo lacus porta. Integer risus leo, laoreet commodo pretium ullamcorper, convallis ac urna. Donec dignissim lacus a nibh faucibus congue. Phasellus placerat et velit sed pellentesque. Nulla varius ultrices lobortis. Duis egestas vitae purus nec commodo. Suspendisse sit amet blandit turpis. Fusce et nisl nisi. Donec ut orci tellus. Suspendisse nec erat lorem. Fusce.",
+    "color": "#B0FF42",
+    "image" : "./imgs/sky.jpg"
+  },
+  {
+    "header" : "Test Header",
+    "text_en" : "Ut facilisis, urna eget sagittis feugiat, sapien ligula ultricies augue, quis dictum diam elit eu purus. Duis sed libero tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget iaculis libero. Cras at accumsan mauris, in commodo nunc. Quisque sit amet tellus placerat, commodo mi eget, vehicula orci. Vestibulum quis pharetra orci. In odio orci, commodo at scelerisque at, bibendum sit amet turpis. Suspendisse nec rhoncus ante, id rhoncus libero. Vivamus a pulvinar tortor. Integer vel tortor id elit sodales convallis.\n\nNulla quis semper lectus, nec cursus justo. Praesent faucibus vitae dolor a fermentum. Aliquam id rutrum ligula, eget sodales lectus. Suspendisse felis dui, sollicitudin nec dolor sed, rutrum aliquam sapien. Etiam accumsan vel.",
+    "text_ru" : "Сайт, созданный для моих друзей. Является площадкой для размещения нововстей проекта HQZone, а также информации о внутриигровых предметах.",
+    "link" : "hqnews.ru",
+    "image" : "./imgs/town.jpg",
+    "color" : "#4ACCFF"
+  },
+  {
+    "header" : "Sample Header",
+    "text_en" : "Website created for my friends. A platform for posting HQZone project news and information about in-game items",
+    "text_en" : "\nSed commodo odio quis libero aliquam lacinia. Donec dapibus, sapien quis lobortis posuere, massa nunc elementum nunc, porta auctor massa risus ullamcorper metus. Quisque molestie ligula congue, malesuada sapien id, consectetur ligula. In purus augue, viverra interdum nibh ut, volutpat placerat lacus. Praesent a lorem ac elit congue viverra. Integer non lectus ligula. Maecenas sagittis hendrerit commodo. Aliquam condimentum ante felis, quis congue ex congue sed.\n\nNam tristique ornare metus vel eleifend. Donec at enim scelerisque nisl mollis viverra. Praesent congue libero sit amet urna facilisis, et convallis mauris convallis. In eleifend elementum lobortis. Integer fringilla leo in justo fringilla porttitor. Etiam aliquet lacus turpis, non euismod risus faucibus quis. Vestibulum eget eros et ante scelerisque dignissim. Donec gravida turpis.",
+    "text_ru" : "Сайт, созданный для моих друзей. Является площадкой для размещения нововстей проекта HQZone, а также информации о внутриигровых предметах.",
+    "link" : "hqnews.ru",
+    "image" : "./imgs/village.jpg",
+    "color" : "#DE59FF"
+  }
+]

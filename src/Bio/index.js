@@ -30,6 +30,7 @@ class Bio extends Component {
         this._request = null
     }
     componentDidMount() {
+
         this.setState({ mounted: true })
         window.addEventListener('resize', this.onWindowResize)
     }
