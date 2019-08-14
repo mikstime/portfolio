@@ -6,9 +6,6 @@ import AnimationWrapper from '../AnimationWrapper'
 import testData from './BioTemplate'
 import uuid from 'uuid/v4'
 
-import scroll from 'scroll'
-import doc from 'scroll-doc'
-const page = doc()
 testData.forEach( item => item.id = uuid())
 class AboutMe extends Component {
 
@@ -96,35 +93,13 @@ class AboutMe extends Component {
         const {animationList, currentAnimation} = this.state
 
         if( animationList[currentAnimation] === "onClickAnimationReversed") {
-            document.body.classList.add('unscrollable')
             this.swapAnimation()
-            const options = { duration: 500 }
-            if(this.cancel1) {
-                this.cancel1()
-                this.cancel1 = false
-            }
-            this.cancel = scroll.top(page, 0, options)
-            const remove = () => {
-                this.cancel()
-                page.removeEventListener('wheel', remove)
-            }
         }
 
         if( animationList[currentAnimation] === "onClickAnimation") {
-            document.body.classList.remove('unscrollable')
             const el = document.getElementById('circles')
             if(el)
                 el.classList.remove('circles-hidden')
-            if(this.cancel) {
-                this.cancel()
-                this.cancel = false
-            }
-            setTimeout(
-                () => {
-                    const options = { duration: 1000 }
-                    this.cancel1 = scroll.top(page, 700, options)
-                }, 1000
-            )
         }
     }
     swapAnimation = () => {
@@ -135,7 +110,6 @@ class AboutMe extends Component {
 
     }
     componentDidMount() {
-        document.body.classList.add('unscrollable')
         this.startAnimation()
     }
 
