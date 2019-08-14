@@ -104,6 +104,7 @@ class Circles extends Component {
     render() {
         const { x, circleWidth, y, radius, descriptor } = this.props
         const {currentCircle, currentAnimation} = this.state
+        console.log(currentAnimation)
         return (
              <div id='circles'>
                 {
@@ -112,14 +113,14 @@ class Circles extends Component {
                             <Circle
                                 key={item.id}
                                 onClick={ this.swapAnimation }
-                                center={[x - 1, y]}
-                                fillInner={id === descriptor.length - 1}
+                                center={[x, y]}
+                                fillInner={id === descriptor.length - 1 || (currentAnimation === 0 && id !== currentCircle)}
                                 title={currentAnimation === 0 && item.header}
                                 isCurrent={currentCircle === id || currentAnimation === 1}
                                 {...item}
                                 color={currentAnimation === 0 ? descriptor[currentCircle].color : item.color}
                                 id={ id }
-                                radius={radius +  circleWidth * (descriptor.length - 1) - (id) * circleWidth - 1}/>
+                                radius={radius +  circleWidth * (descriptor.length - 1) - (id) * circleWidth + 1 }/>
                         )
                     )
                 }

@@ -32,7 +32,7 @@ $maxRadius : 720px
 .circle, .circle-is-chosen
   position: absolute
   transform-origin: center
-  border-width: 101px
+  border-width: 100px
   border-style: solid
   border-radius: 100%
   background: transparent
@@ -47,7 +47,7 @@ $maxRadius : 720px
 
 .circle
   z-index: 101
-  filter : brightness(15%)
+  filter : brightness(30%)
   color : transparent
 
 .circle-is-chosen
@@ -99,7 +99,8 @@ $maxRadius : 720px
   background-position: right
   background-repeat: no-repeat
   background-size: cover
-  opacity: 0.1
+  filter : blur(10px)
+  opacity: 0.2
   border-radius: 0 0 $maxRadius $maxRadius
 
 .content-holder
