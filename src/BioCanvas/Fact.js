@@ -157,7 +157,8 @@ class Fact extends Component {
             <Layer>
                 <Circle onClick={this.props.onClick}{...circleStyle}/>
 
-                    <Group                                 onClick={this.props.onClick}>
+                    <Group
+                        onClick={(e) => {e.stopPropagation(); this.props.onClick()}}>
                         {body && showRadius <= radius &&
                         <TextBlock
                             id={id+1}
@@ -170,7 +171,8 @@ class Fact extends Component {
                         }
                     </Group>
 
-                    <Group                                 onClick={this.props.onClick}>
+                    <Group
+                        onClick={(e) => {e.stopPropagation(); this.props.onClick()}}>
                         { header && showRadius <= radius &&
                             <TextBlock
                                 id={id + 2}
@@ -182,10 +184,10 @@ class Fact extends Component {
                             />
                         }
                     </Group>
-                    <Group                                 onClick={this.props.onClick}>
+                    <Group
+                        onClick={(e) => {e.stopPropagation(); this.props.onClick()}}>
                         { title &&
                             <PointText
-                                onClick={this.props.onClick}
                                 justification='center'
                                 style={ titleStyle }
                                 point={ center }

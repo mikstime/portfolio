@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2ab0676a-bf53-40d8-b521-aabe081042a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BioCanvas/AboutMe.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BioCanvas/AboutMe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BioCanvas/Fact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BioCanvas/Fact.js" afterDir="false" />
     </list>
     <list id="c4b46ae2-64b1-4b98-a0f4-d34f5a6b832e" name="PropTypes + Refactoring" comment="" />
     <list id="f33ec8e8-ca3f-4231-8e26-94b40997b4e6" name="Revert &quot;PropTypes + Refactoring&quot;" comment="Revert &quot;PropTypes + Refactoring&quot;&#10;&#10;This reverts commit 4b908c60" />
@@ -20,40 +19,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BioSVG/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="21">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projects/PostParser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -82,14 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BioCanvas/AboutMe.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408">
-              <caret line="111" column="25" selection-start-line="111" selection-start-column="25" selection-end-line="111" selection-end-column="25" />
+            <state relative-caret-position="463">
+              <caret line="134" column="34" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/BioCanvas/Fact.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="673">
+              <caret line="189" column="38" selection-start-line="189" selection-start-column="38" selection-end-line="189" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -106,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Projects/style.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3129">
-              <caret line="149" column="15" selection-start-line="149" selection-start-column="15" selection-end-line="149" selection-end-column="15" />
+            <state relative-caret-position="357">
+              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -115,11 +102,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Projects/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+            <state relative-caret-position="210">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projects/Circles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="116" column="106" selection-start-line="116" selection-start-column="106" selection-end-line="116" selection-end-column="106" />
             </state>
           </provider>
         </entry>
@@ -137,10 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prop</find>
-      <find>prev</find>
-      <find>req</find>
-      <find>circleWidth</find>
       <find>transition</find>
       <find>z-in</find>
       <find>propTypes</find>
@@ -167,6 +159,10 @@
       <find>console</find>
       <find>click-</find>
       <find>scroll</find>
+      <find>unscrollable</find>
+      <find>.circle</find>
+      <find>+</find>
+      <find>opacity</find>
     </findStrings>
     <replaceStrings>
       <replace>const</replace>
@@ -211,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/Bio/WindowScrollManager.js" />
         <option value="$PROJECT_DIR$/src/Links/index.js" />
         <option value="$PROJECT_DIR$/src/Projects/projects.json" />
-        <option value="$PROJECT_DIR$/src/Projects/Circles.js" />
         <option value="$PROJECT_DIR$/src/Bio/style.sass" />
         <option value="$PROJECT_DIR$/src/Bio/BioRainbow.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
@@ -233,10 +228,12 @@
         <option value="$PROJECT_DIR$/src/Bio/Fact.js" />
         <option value="$PROJECT_DIR$/src/BioSVG/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/Projects/style.sass" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/BioCanvas/AboutMe.js" />
+        <option value="$PROJECT_DIR$/src/Projects/style.sass" />
+        <option value="$PROJECT_DIR$/src/Projects/Circles.js" />
+        <option value="$PROJECT_DIR$/src/BioCanvas/Fact.js" />
       </list>
     </option>
   </component>
@@ -270,12 +267,6 @@
               <item name="portfolio" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="BioCanvas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="portfolio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BioSVG" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="portfolio" type="b2602c69:ProjectViewProjectNode" />
@@ -370,7 +361,7 @@
       <workItem from="1565693815704" duration="450000" />
       <workItem from="1565704459852" duration="29301000" />
       <workItem from="1565796395383" duration="556000" />
-      <workItem from="1565798746437" duration="91000" />
+      <workItem from="1565798746437" duration="2498000" />
     </task>
     <task id="LOCAL-00001" summary="Links created">
       <created>1565122721739</created>
@@ -568,11 +559,32 @@
       <option name="project" value="LOCAL" />
       <updated>1565792492521</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Mobile version scroll fix">
+      <created>1565798875872</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1565798875872</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Click on canvas fix">
+      <created>1565801610751</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1565801610751</updated>
+    </task>
+    <task id="LOCAL-00031" summary="background fix">
+      <created>1565801625071</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1565801625071</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162055000" />
+    <option name="totallyTimeSpent" value="164462000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -587,7 +599,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15574348" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21212122" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -603,7 +615,7 @@
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32923833" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32923833" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.2837838" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.2837838" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -676,9 +688,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Prop-types added to Link component" />
-    <MESSAGE value="Links refactored and bio Fact added" />
-    <MESSAGE value="Bio design" />
     <MESSAGE value="Word position fixed" />
     <MESSAGE value="RAW pan added" />
     <MESSAGE value="Animation is quite quick right now" />
@@ -701,7 +710,10 @@
     <MESSAGE value="ScrollY on load is always 0&#10;Some cleanup&#10;Image apear bug fix" />
     <MESSAGE value="Canvas and paperjs was replaced with svg" />
     <MESSAGE value="Canvas version of Bio section is used on mobile and svg on other platforms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Canvas version of Bio section is used on mobile and svg on other platforms" />
+    <MESSAGE value="Mobile version scroll fix" />
+    <MESSAGE value="Click on canvas fix" />
+    <MESSAGE value="background fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="background fix" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Links/imgs/GitHub-Mark.eps" />
@@ -729,13 +741,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Projects/circle.scss" />
-    <entry file="file://$PROJECT_DIR$/src/Projects/PostParser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Projects/RoundedLetters.js" />
     <entry file="file://$PROJECT_DIR$/src/Links/style.css">
       <provider selected="true" editor-type-id="text-editor" />
@@ -812,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Projects/Circles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="133" column="24" lean-forward="true" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AnimationWrapper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1466">
@@ -860,13 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BioCanvas/Fact.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="154" column="69" selection-start-line="154" selection-start-column="69" selection-end-line="154" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BioSVG/Fact.js" />
     <entry file="file://$PROJECT_DIR$/src/BioSVG/ColoredCircle.js" />
     <entry file="file://$PROJECT_DIR$/src/BioSVG/AboutMe.js" />
@@ -897,37 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BioSVG/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BioCanvas/style.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Projects/style.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3129">
-          <caret line="149" column="15" selection-start-line="149" selection-start-column="15" selection-end-line="149" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Projects/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -948,13 +908,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/BioSVG/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projects/PostParser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projects/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projects/style.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BioCanvas/style.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projects/Circles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="116" column="106" selection-start-line="116" selection-start-column="106" selection-end-line="116" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BioCanvas/AboutMe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="111" column="25" selection-start-line="111" selection-start-column="25" selection-end-line="111" selection-end-column="25" />
+        <state relative-caret-position="463">
+          <caret line="134" column="34" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BioCanvas/Fact.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="189" column="38" selection-start-line="189" selection-start-column="38" selection-end-line="189" selection-end-column="38" />
         </state>
       </provider>
     </entry>
