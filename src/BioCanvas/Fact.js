@@ -157,7 +157,7 @@ class Fact extends Component {
             <Layer>
                 <Circle onClick={this.props.onClick}{...circleStyle}/>
 
-                    <Group>
+                    <Group                                 onClick={this.props.onClick}>
                         {body && showRadius <= radius &&
                         <TextBlock
                             id={id+1}
@@ -170,7 +170,7 @@ class Fact extends Component {
                         }
                     </Group>
 
-                    <Group>
+                    <Group                                 onClick={this.props.onClick}>
                         { header && showRadius <= radius &&
                             <TextBlock
                                 id={id + 2}
@@ -182,7 +182,7 @@ class Fact extends Component {
                             />
                         }
                     </Group>
-                    <Group>
+                    <Group                                 onClick={this.props.onClick}>
                         { title &&
                             <PointText
                                 onClick={this.props.onClick}
