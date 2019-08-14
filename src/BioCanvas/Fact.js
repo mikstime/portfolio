@@ -114,15 +114,14 @@ class TextBlock extends Component {
 
     render() {
         // @IMPORTANT SET POSITION USING REFS onComponentDidMount
-        const { message, style } = this.props
-
+        const { message, style, id } = this.props
         return(
             message
                 .split('')
                 .map(
-                    (letter) => (
+                    (letter,  i) => (
                         <PointText ref={ (r) => (this.letterRefs.push(r)) }
-                                   key={ uuid() }
+                                   key={id + i}
                                    { ...style }
                                    justification='center'
                                    content={ letter }
@@ -144,25 +143,24 @@ class Fact extends Component {
     }
 
     render() {
-        const {showRadius = 0, center, radius,
+        const {showRadius = 0, center, radius, id,
             color = RED, header = '', body = '', title =''} = this.props
         const circleStyle = this.props.circleStyle || {
             radius : radius,
             fillColor : color,
             center : center
         }
-
         const headerStyle = this.props.headerStyle || STYLES['header']
         const bodyStyle   = this.props.bodyStyle   || STYLES['body']
         const titleStyle  = this.props.headerStyle || STYLES['title']
-
         return(
             <Layer>
                 <Circle onClick={this.props.onClick}{...circleStyle}/>
 
                     <Group>
-                        {body &&
+                        {body && showRadius <= radius &&
                         <TextBlock
+                            id={id+1}
                             radius={ radius - 70 }
                             center={ center }
                             message={ body }
@@ -173,8 +171,9 @@ class Fact extends Component {
                     </Group>
 
                     <Group>
-                        { header &&
+                        { header && showRadius <= radius &&
                             <TextBlock
+                                id={id + 2}
                                 radius={ radius - 50 }
                                 center={ center }
                                 showRadius={showRadius - 50}

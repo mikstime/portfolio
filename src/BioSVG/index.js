@@ -11,11 +11,12 @@ testData.forEach(item => item.id = uuid())
 
 
 const AnimatedSvg = AnimationExecutor(
-    ({x ,y, radius, infoRadius, onClick, descriptor}) => {
+    ({x ,y, radius, infoRadius, onClick, descriptor}, ...rest) => {
         return (
             <Fragment>
                 { radius &&
                 <svg
+                    textRendering='optimizeSpeed'
                     xmlns="http://www.w3.org/2000/svg">
                     <style>
                         {`.body {
@@ -37,40 +38,42 @@ const AnimatedSvg = AnimationExecutor(
                             font-weight : normal;
                         }`}
                     </style>
-                    {
-                        descriptor.map(
-                            (item, id) => {
+                    <g onClick={ onClick }>
+                        {
+                            descriptor.map(
+                                (item, id) => {
 
-                                const newRadius = radius + infoRadius * (descriptor.length - 2) - (id) * infoRadius
-                                return (
-                                    <g onClick={ onClick }>
-                                        <path
+                                    const newRadius = radius + infoRadius * (descriptor.length - 2) - (id) * infoRadius
+                                    return (
+                                        <Fragment key={item.id + 4}>
+                                            <path
 
-                                            fill={ item.color }
-                                            id={ "circle_" + item.id }
-                                            key={ item.id }
-                                            transform={ `rotate( -60 ${ x } ${ y })` }
-                                            d={ `M ${ x + newRadius }, 
+                                                fill={ item.color }
+                                                id={ "circle_" + item.id }
+                                                key={ item.id }
+                                                transform={ `rotate( -60 ${ x } ${ y })` }
+                                                d={ `M ${ x + newRadius }, 
                                             ${ y } a ${ newRadius },${ newRadius } 1 0,
                                             1 ${ -2 * newRadius },1 a ${ newRadius },
                                             ${ newRadius } 1 1,1 ${ 2 * newRadius },0 ` }
-                                        />
-                                        { (item.title || infoRadius) &&
-                                        <Fragment key={ item.id + 1 }>
-                                            <RoundText className={ 'header' } dy={ 50 } text={ item.header }
-                                                       path={ '#circle_' + item.id }
-                                                       key={ item.id + 2 }/>
-                                            <RoundText className={ 'body' } x={ x } y={ y } dy={ 70 }
-                                                       text={ item.body }{ ...item } path={ '#circle_' + item.id }
-                                                       key={ item.id + 3 }/>
+                                            >
+                                            </path>
+                                            { (item.title || infoRadius) &&
+                                            <Fragment key={ item.id + 1 }>
+                                                <RoundText className={ 'header' } dy={ 50 } text={ item.header }
+                                                           path={ '#circle_' + item.id }
+                                                           key={ item.id + 2 }/>
+                                                <RoundText className={ 'body' } x={ x } y={ y } dy={ 70 }
+                                                           text={ item.body }{ ...item } path={ '#circle_' + item.id }
+                                                           key={ item.id + 3 }/>
+                                            </Fragment>
+                                            }
                                         </Fragment>
-                                        }
-                                    </g>
-
-                                )
-                            }
-                        )
-                    }
+                                    )
+                                }
+                            )
+                        }
+                    </g>
                 </svg>
                 }
             </Fragment>

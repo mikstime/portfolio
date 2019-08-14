@@ -73,6 +73,7 @@ export default function AnimationWrapper(WrappedComponent) {
         }
 
         animate = () => {
+            this._needUpdate && requestAnimationFrame(this.animate)
             if(this.state.inProgress) {
                 if ( this.state._needToComputeSteps ) {
                     this.computeSteps()
@@ -83,7 +84,6 @@ export default function AnimationWrapper(WrappedComponent) {
                     }
                 }
             }
-            this._needUpdate && requestAnimationFrame(this.animate)
         }
         linearBehavior = () => {
             const { behavior : {currentStep = 1},
